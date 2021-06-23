@@ -33,48 +33,42 @@ function runEnter() {
     console.log(dateInputValue);
 
     var cityInputValue = cityInputElement.property("value");
-    console.log(dateInputValue);
+    console.log(cityInputValue);
 
     var stateInputValue = stateInputElement.property("value");
-    console.log(dateInputValue);
+    console.log(stateInputValue);
 
     var countryInputValue = countryInputElement.property("value");
-    console.log(dateInputValue);
+    console.log(countryInputValue);
 
     var shapeInputValue = shapeInputElement.property("value");
-    console.log(dateInputValue);
+    console.log(shapeInputValue);
 
     // Filter data according to input
-    var dateData = data.filter(sigthing => sigthing.datetime === dateInputValue);
-    console.log(dateData);
+    var filteredData = data.filter(sigthing => sigthing.datetime === dateInputValue 
+        && sigthing.city === cityInputValue
+        && sigthing.state === stateInputValue
+        && sigthing.country === countryInputValue
+        && sigthing.shape === shapeInputValue);
+    console.log(filteredData);
 
-    var cityData = data.filter(sigthing => sigthing.city === cityInputValue);
-    console.log(cityData);
+    // Clear current table body
+    d3.select("tbody").text("");
 
-    var stateData = data.filter(sigthing => sigthing.state === stateInputValue);
-    console.log(stateData);
+    // Get a reference to the table body
+    var tbody = d3.select("tbody");
 
-    var countryData = data.filter(sigthing => sigthing.country === countryInputValue);
-    console.log(countryData);
-
-    var shapeData = data.filter(sigthing => sigthing.shape === shapeInputValue);
-    console.log(shapeData);
-
-    // Combine filtered data
-    // var filteredData = 
-
-    // // Clear current table body
-    // d3.select("tbody").text("");
-
-    // // Get a reference to the table body
-    // var tbody = d3.select("tbody");
-
-    // // Append table with filtered results
-    // filteredData.forEach((ufoSighting) => {
-    //     var row = tbody.append("tr");
-    //     Object.entries(ufoSighting).forEach(([key, value]) => {
-    //       var cell = row.append("td");
-    //       cell.text(value);
-    //     });
-    // });
+    // Append table with filtered results
+    if(filteredData.length == 0) {
+        alert("No results found");
+    }
+    else {
+        filteredData.forEach((ufoSighting) => {
+            var row = tbody.append("tr");
+            Object.entries(ufoSighting).forEach(([key, value]) => {
+            var cell = row.append("td");
+            cell.text(value);
+            });
+        });
+    };
 };
