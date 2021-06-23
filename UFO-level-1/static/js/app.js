@@ -35,11 +35,16 @@ function runEnter() {
     var tbody = d3.select("tbody");
 
     // Append table with filtered results
-    filteredData.forEach((ufoSighting) => {
-        var row = tbody.append("tr");
-        Object.entries(ufoSighting).forEach(([key, value]) => {
-          var cell = row.append("td");
-          cell.text(value);
-        });
-    });
+    if(filteredData.length == 0) {
+      alert("No results found for current filters");
+    }
+    else {
+      filteredData.forEach((ufoSighting) => {
+          var row = tbody.append("tr");
+          Object.entries(ufoSighting).forEach(([key, value]) => {
+            var cell = row.append("td");
+            cell.text(value);
+          });
+      });
+  };
 };

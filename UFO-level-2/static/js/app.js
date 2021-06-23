@@ -60,14 +60,14 @@ function runEnter() {
 
     // Append table with filtered results
     if(filteredData.length == 0) {
-        alert("No results found");
+        alert("No results found for current filters");
     }
     else {
         filteredData.forEach((ufoSighting) => {
             var row = tbody.append("tr");
             Object.entries(ufoSighting).forEach(([key, value]) => {
-            var cell = row.append("td");
-            cell.text(value);
+                var cell = row.append("td");
+                cell.text(value);
             });
         });
     };
