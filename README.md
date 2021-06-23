@@ -15,7 +15,7 @@ project
 |                          |_ images/    # contains image files
 |                          |_ js/        # contains javascript files
 |
-|__ README.md                   # Readme file
+|__ README.md                        # Readme file
 ```
 
 
@@ -58,7 +58,7 @@ else {
     });
 };
 ```
-## Step 2 - MongoDB and Flask Application
+## Level 2 - Multiple Search Categories
 - Completing the same as above except adding additional user filters for `date/time`, `city`, `state`, `country`, and `shape`
 - Find value of user filters
 ```
