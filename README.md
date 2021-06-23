@@ -20,7 +20,6 @@ project
 
 
 ## Level 1 - Automatic Table and Date Search
-### NASA Mars News
 - Using the dataset, write code that appends a table to the page and the nadds new rows of data for each UFO sighting
 - Each row has the columns `date/time`, `city`, `state`, `country`, `shape`, and `comment`
 - Use JavaScript event listners to listen for events
