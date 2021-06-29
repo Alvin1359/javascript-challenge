@@ -1,6 +1,18 @@
 // from data.js
 var tableData = data;
 
+// Get a reference to the table body
+var tbody = d3.select("tbody");
+
+// Append initial table
+tableData.forEach((ufoSighting) => {
+  var row = tbody.append("tr");
+  Object.entries(ufoSighting).forEach(([key, value]) => {
+    var cell = row.append("td");
+    cell.text(value);
+  });
+});
+
 // Select the button
 var button = d3.select("#filter-btn");
 
